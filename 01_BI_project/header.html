@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 팀플 헤더를 만들자^^..</title>
+
+    <!-- jQuery 가져오기 -->
+    <script src="https://code.jquery.com/jquery-1.10.0.js"></script>
+
+    <!-- 스타일 초기화 : reset.css 또는 normalize.css -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
+
+    <!-- 폰트 로딩 -->
+    <link rel="stylesheet" href="google.css">
+
+    <style>
+        /* 스타일 사용자 정의 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            width: 100%;
+            font-family: 'Noto Sans KR';
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        img {
+            border: 0;
+        }
+
+        .wrap {
+            clear: both;
+            width: 100%;
+        }
+
+        .wrap::after {
+            content: "";
+            display: block;
+            width: 100%;
+            clear: both;
+        }
+    </style>
+
+    <style>
+        /* font-family: 'Noto Sans KR'; */
+        /* 헤더 구역 스타일 */
+        .hd {
+            clear: both;
+            position: relative;
+            width: 100%;
+            height: 90px;
+        }
+
+        /* .hd::before {
+            content: "";
+            display: block;
+            width: 100vw;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            left: 0;
+            top: 90px;
+            z-index: 15;
+            display: none;
+        }
+
+        .hd:hover::before {
+            display: block;
+        } */
+
+        .tnb_wrap {
+            clear: both;
+            width: 100%;
+            background-color: #333;
+        }
+
+        .hd_wrap {
+            background-color: #fff;
+            width: 1500px;
+            margin: 0 auto;
+        }
+
+        .hd_wrap::before {
+            content: "";
+            display: block;
+            width: 100vw;
+            height: 190px;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            top: 110px;
+            z-index: 15;
+            display: none;
+        }
+
+        .hd_wrap:hover::before {
+            display: block;
+        }
+
+        .tnb {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tnb::after {
+            content: "";
+            clear: both;
+            display: block;
+            width: 100%;
+        }
+
+        .tnb .menu {
+            float: right;
+            height: 40px;
+            margin: auto;
+            line-height: 40px;
+        }
+
+        .tnb .menu li {
+            float: left;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+        .tnb .menu li a {
+            color: #fff;
+        }
+
+        .logo {
+            display: block;
+            width: auto;
+            height: 50px;
+            float: left;
+            padding: 10px;
+        }
+
+        .logo img {
+            display: block;
+            width: auto;
+            height: 100%;
+        }
+
+        .gnb {
+            width: 1080px;
+            height: 0px;
+            position: absolute;
+            left: 50%;
+            margin-left: -540px;
+        }
+
+        .gnb .menu {
+            clear: both;
+            height: 50px;
+            position: relative;
+        }
+
+        .gnb .menu::after {
+            content: "";
+            clear: both;
+            width: 100%;
+            display: block;
+        }
+
+        .gnb .menu li {
+            float: left;
+            width: 16%;
+            position: relative;
+            height: 50px;
+        }
+
+        .gnb .menu li .sub {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            width: 180px;
+            height: 200px;
+            top: 70px;
+            left: 0;
+            z-index: 999;
+        }
+
+        .hd_wrap:hover .gnb .menu li .sub {
+            visibility: visible;
+            height: 300px;
+            opacity: 1;
+        }
+
+        .gnb .menu li a.dp1 {
+            display: block;
+            width: 100%;
+            line-height: 70px;
+            border-bottom: 2px solid #fff;
+            text-align: center;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .gnb .menu li:hover a.dp1 {
+            color: #FACA00;
+            font-weight: bold;
+        }
+
+        .gnb .menu li .sub li {
+            padding-left: 0px;
+            line-height: 34px;
+            clear: both;
+            width: 180px;
+        }
+
+        .gnb .menu li .sub li a {
+            display: block;
+            width: 173px;
+            text-align: center;
+            line-height: 50px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin-top: 8px;
+            padding-left: 8px;
+            padding-right: 8px;
+            box-sizing: border-box;
+        }
+
+        .gnb .menu li .sub li:hover a {
+            border-bottom: 3px solid #FACA00;
+        }
+
+    </style>
+
+    <style>
+        /* 본문 영역 스타일 */
+        .contents {
+            clear: both;
+        }
+
+        .contents::after {
+            content: "";
+            clear: both;
+            display: block;
+            width: 100%;
+        }
+
+        .vs {
+            clear: both;
+            width: 100%;
+            min-height: 400px;
+            background-color: #809EAD;
+            position: relative;
+        }
+
+        .vs_tit {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 150px;
+            color: #fff;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="hd">
+            <!-- header.jsp 시작 -->
+            <div class="tnb_wrap">
+                <nav class="tnb">
+                    <ul class="menu">
+                        <li><a href=""> 로그인 </a></li>
+                        <li><a href=""> 회원가입 </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="hd_wrap">
+                <a href="/" class="logo">
+                    <img src="./images/corn_edu_200-128.png" alt="CORN EDU 로고 타입">
+                </a>
+                <nav class="gnb">
+                    <ul class="menu">
+                        <li class="item1">
+                            <a href="" class="dp1"> 소개 </a>
+                            <ul class="sub">
+                                <li><a href=""> 회사 소개 </a></li>
+                                <li><a href=""> 서비스 소개 </a></li>
+                            </ul>
+                        </li>
+                        <li class="item2">
+                            <a href="" class="dp1"> 초등 </a>
+                            <ul class="sub">
+                                <li><a href=""> 강의 </a></li>
+                                <li><a href=""> 교재 </a></li>
+                            </ul>
+                        </li>
+                        <li class="item3">
+                            <a href="" class="dp1"> 중등 </a>
+                            <ul class="sub">
+                                <li><a href=""> 강의 </a></li>
+                                <li><a href=""> 교재 </a></li>
+                            </ul>
+                        </li>
+                        <li class="item4">
+                            <a href="" class="dp1"> 고등 </a>
+                            <ul class="sub">
+                                <li><a href=""> 강의 </a></li>
+                                <li><a href=""> 교재 </a></li>
+                            </ul>
+                        </li>
+                        <li class="item5">
+                            <a href="" class="dp1"> 커뮤니티 </a>
+                            <ul class="sub">
+                                <li><a href=""> 학생 커뮤니티 </a></li>
+                                <li><a href=""> 학부모 커뮤니티 </a></li>
+                            </ul>
+                        </li>
+                        <li class="item6">
+                            <a href="" class="dp1"> 고객지원 </a>
+                            <ul class="sub">
+                                <li><a href=""> 공지사항 </a></li>
+                                <li><a href=""> QnA </a></li>
+                                <li><a href=""> FAQ </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- header.jsp 끝 -->
+        </header>
+        <div class="contents">
+            <figure class="vs">
+                <h2 class="vs_tit">배너 제목</h2>
+            </figure>
+        </div>
+        <footer class="ft">
+            <div class="ft_wrap"></div>
+        </footer>
+    </div>
+</body>
+
+</html>
